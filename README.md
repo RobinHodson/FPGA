@@ -1,5 +1,5 @@
 # FPGA
-FPGA^2, and OSHW FPGA, initially running in its own online circuit simulator.
+FPGA^2, an OSHW FPGA, initially running in its own online circuit simulator.
 
 This operates under the CERN-OHL-P licence.
 The file is a placeholder, subjuect to amendment.
