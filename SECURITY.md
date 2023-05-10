@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-There will be no security ujpdates until I work out how they could apply.
+There will be no security updates until I work out how they could apply.
 the HTML circuit simulators are entirely self-contained; no code runs elsewhere.
 The most likely vunerabilites are potential exploits, except the FPGA level is too far abstracted from the user level, to make any sense for this.
 
