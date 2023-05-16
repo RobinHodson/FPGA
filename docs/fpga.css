@@ -1,0 +1,10 @@
+body{font-size:12pt;font-family:arial,sans-serif}
+h1{text-align:left}
+h1,h2,h3{color:#004}
+abbr{text-decoration:none}
+[title]{cursor:help}
+
+ul li::marker {font-size:1.5em}
+      ul li::marker{content:'\2605\00a0';color:#40c}
+   ul ul li::marker{content:'\2734\00a0';color:#604}
+ul ul ul li::marker{content:'\2666\00a0';color:#044}
