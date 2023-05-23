@@ -14,23 +14,13 @@ A test of Verilog syntax highlighting:
 ```verilog
 module Example_counter
 #(parameter WIDTH=64,NAME="world")
-(
-  input clk,
-  input ce,
-  input arst_n,
-  output reg [WIDTH-1:0] q
-);
-    
-string name="counter";
-clock_buffer #(WIDTH) buffer_inst(
-.clk(clk),
-.ce(ce),
-.reset(arst_n)
-);
-
+(input clk,
+ output reg [WIDTH-1:0] q);
 ...
 ```
 (The above code has nothing to do with this project.)
 
-![Markdown test...](https://myoctocat.com/assets/images/base-octocat.svg)
-![](https://github.com/RobinHodson/FPGA/docs/rtl1b.pdf)
+Okay, now I have a large-scale RTL plan/explanation of my FPGA design:
+![](docs/rtl1c.png)
+
+You can also [download this as a PDF](https://robinhodson.github.io/FPGA/docs/rtl1c.pdf)
