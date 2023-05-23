@@ -20,7 +20,7 @@ module Example_counter
 ```
 (The above code has nothing to do with this project.)
 
-Okay, now I have a large-scale RTL plan/explanation of my FPGA design:
+Okay, now (as of 23/5/2023) I have a large-scale RTL plan/explanation of my FPGA design:
 ![](docs/rtl1c.png)
 
-You can also [download this as a PDF](https://robinhodson.github.io/FPGA/docs/rtl1c.pdf)
+You can also [download this as a PDF](https://robinhodson.github.io/FPGA/docs/rtl1b.pdf)
