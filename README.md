@@ -24,3 +24,4 @@ Okay, now (as of 23/5/2023) I have a large-scale RTL plan/explanation of my FPGA
 ![](docs/rtl1c.png)
 
 You can also [download this as a PDF](https://robinhodson.github.io/FPGA/docs/rtl1b.pdf)
+(If that doesn't work, just look at the repo directly.)
