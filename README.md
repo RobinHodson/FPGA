@@ -1,15 +1,14 @@
 # FPGA^2
-FPGA^2, an OSHW (Open-Source Hardware) FPGA (Field-Programmable Gate Array), initially running in its own online circuit simulator.
+An OSHW (Open-Source Hardware) FPGA (Field-Programmable Gate Array), initially running in its own online circuit simulator.
 ![](https://github-readme-stats.vercel.app/api?custom_title=FPGA%5e2%27s+GitHub+Stats&username=RobinHodson&repo=FPGA&show_icons=true&title_color=fc0&icon_color=cfc&text_color=8f8&bg_color=000)
 
 This operates under the CERN-OHL-P licence.
 The first online presence for this project, is/was [freedom.is/svg](http://freedom.is/svg)
 
-There is no Verilog for this FPGA yet; it is purely a parameterised schematic.
+[Main documentation contents](https://robinhodson.github.io/FPGA/), part ofwhich may later merge into this readme.
 
-The main documentation page is [now online](https://robinhodson.github.io/FPGA/)
-
-A test of Verilog syntax highlighting:
+<details>
+<summary>Verilog syntax highlighting test</summary>
 
 ```verilog
 module Example_counter
@@ -18,10 +17,14 @@ module Example_counter
  output reg [WIDTH-1:0] q);
 ...
 ```
-(The above code has nothing to do with this project.)
 
-Okay, now (as of 23/5/2023) I have a large-scale RTL plan/explanation of my FPGA design:
+(The above code has nothing to do with this project.)
+</details>
+<details>
+<summary>Large-scale RTL plan/explanation of my FPGA design</summary>
+(Added 23/5/2023)
+
 ![](docs/rtl1c.png)
 
-You can also [download this as a PDF](https://robinhodson.github.io/FPGA/docs/rtl1b.pdf)
-(If that doesn't work, just look at the repo directly.)
+You can also [download this as a PDF](https://github.com/RobinHodson/FPGA/blob/main/docs/rtl1b.pdf): Click on the download rawfile button.
+</details>
