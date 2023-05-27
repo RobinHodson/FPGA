@@ -5,7 +5,51 @@ An OSHW (Open-Source Hardware) FPGA (Field-Programmable Gate Array), initially r
 This operates under the CERN-OHL-P licence.
 The first online presence for this project, is/was [freedom.is/svg](http://freedom.is/svg)
 
-[Main documentation contents](https://robinhodson.github.io/FPGA/), part ofwhich may later merge into this readme.
+## Status
+
+* Currently converting parts of the original website into documentation here.
+* Developing a new tool to generate complex SVG faster.
+
+The previous slow generation of SVG diagrams, held up this documenting process for a while.
+
+## Contents
+
+[Main documentation](https://robinhodson.github.io/FPGA/), experimentally also merged into this readme:
+
+<details><summary><A href="https://robinhodson.github.io/FPGA/explain.html">Explanations</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/explain.html#intro">Introduction</A>
+<LI><A href="https://robinhodson.github.io/FPGA/explain.html#what">What this is</A>
+<LI><A href="https://robinhodson.github.io/FPGA/explain.html#why">Why &amp; how this was developed</A>
+<LI><A href="https://robinhodson.github.io/FPGA/explain.html#associated">Associated Projects</A>
+</UL>
+</details>  
+<details><summary><A href="https://robinhodson.github.io/FPGA/design.html">Improved FPGA</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/design.html#key">Circuit Symbols (Key)</A>
+<LI><A href="https://robinhodson.github.io/FPGA/design.html#examples">Circuit Examples</A>
+<LI><A href="https://robinhodson.github.io/FPGA/design.html#design">FPGA Design</A>
+<LI><A href="https://robinhodson.github.io/FPGA/design.html#advantages">Advantages</A>
+</UL>
+</details>  
+<details><summary><A href="https://robinhodson.github.io/FPGA/algebra.html">Extended Boolean Algebra</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/algebra.html#objectives">Outline &amp; Objectives</A>
+<LI><A href="https://robinhodson.github.io/FPGA/algebra.html#groundwork">Groundwork</A>
+<LI><A href="https://robinhodson.github.io/FPGA/algebra.html#higher">Higher-order Functions</A>
+<LI><A href="https://robinhodson.github.io/FPGA/algebra.html#conclusions">Equivalents &amp; Conclusions</A>
+</UL>
+</details>
+<details><summary><A href="https://robinhodson.github.io/FPGA/roadmap.html">Roadmap</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#history">Potted History</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#bottlenecks">Bottlenecks &amp; Workarounds</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#conclusions">Conclusions along the way</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#future">Future Plans</A>
+</UL>
+</details>
+
+## Quick Overview
 
 <details>
 <summary>Verilog syntax highlighting test</summary>
