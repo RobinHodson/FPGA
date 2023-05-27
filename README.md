@@ -2,7 +2,8 @@
 An OSHW (Open-Source Hardware) FPGA (Field-Programmable Gate Array), initially running in its own online circuit simulator.
 ![](https://github-readme-stats.vercel.app/api?custom_title=FPGA%5e2%27s+GitHub+Stats&username=RobinHodson&repo=FPGA&show_icons=true&title_color=fc0&icon_color=cfc&text_color=8f8&bg_color=000)
 
-This operates under the CERN-OHL-P licence.
+This operates under the [CERN-OHL-P licence](https://github.com/RobinHodson/FPGA/blob/main/LICENSE.txt).
+
 The first online presence for this project, is/was [freedom.is/svg](http://freedom.is/svg)
 
 ## Status
