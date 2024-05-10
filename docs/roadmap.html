@@ -4,26 +4,333 @@
 <TITLE>FPGA^2 Roadmap</TITLE>
 <META charset="utf-8">
 <META name="viewport" content="width=device-width, initial-scale=1">
+<STYLE>
+DT{font-weight:bold;margin-top:1em}
+</STYLE>
 <LINK rel="stylesheet" href="fpga.css" type="text/css">
 </HEAD><BODY>
 <H1>Roadmap</H1>
 <P>Contents:
 <UL>
+<LI><A href="#new">Newstyle Roadmap</A>
+<UL>
+<LI><A href="#past">Done</A> (Refumbled documentation from talks)
+<LI><A href="#current">Ongoing</A>
+<LI><A href="#future">Future Plans</A>
+</UL>
+<LI><A href="#old">Oldstyle Roadmap</A> (Old structured documentation)
+<UL>
 <LI><A href="#history">Potted History</A>
 <LI><A href="#bottlenecks">Bottlenecks &amp; Workarounds</A>
 <LI><A href="#conclusions">Conclusions along the way</A>
-<LI><A href="#future">Future Plans</A>
 </UL>
-<H2 name="history">Potted History</H2>
+</UL>
+
+<H2 id="new">Newstyle Roadmap</H2>
+
+<P>The subsections are:
+<DL>
+
+<DT>Main FPGA part:
+<DD>How all this came about, and the level of maturity the design is at.
+
+<DT>FGPA documentation:
+<DD>Documentation is really important in an open-source project.
+
+<DT>Presentation hardware:
+<DD>The hardware part of a slide-display project to my my talks run smoother, which may become a separate product.
+<BR>Please note that this will be closed-source, if trivial.
+
+<DT>Presentation software:
+<DD>The software part of a slide-display project to my my talks run smoother, which may become a separate product.
+<BR>Please note that this will be closed-source, at least initially, as it will be a commercial product.
+<BR>Its primary use here for now, is making my talks run smoothly.
+
+<DT>Closed-source AI:
+<DD>A description, but not a good-enough one to replicate anything, of how the AI is going.
+
+<DT>Open-source things to run on the FPGA:
+<DD>Anything else designed to run upon the FPGA, which isn't closed-source.
+<BR>Mainly a monitor, and example configured-hardware.
+
+<DT>A devboard:
+<DD>Development board, possibly at first one supporting only a traditional FPGA for softloading, probably a recommended existing open-source board.
+<BR>But later, something you can buy, which either has flash and softloads my FPGA onto an existing FPGA, so you can access it as if it were a silicon FPGA,
+and later still, some kind of support for an ASIC in some form. Don't expect miracles from early ASICs though: Simply shrinking the size of a circuit,
+does not automatically produce low propagation delays. (Nor high clock speed, for any synchronous/serial philistines reading this.) 
+
+<DT>Software for a separate host machine:
+<DD>Software for various host machines. Although a separate host machine will be optional, it's an option that will be kept open for flexibility.
+<BR>One of the aims is the have software simple enough to run on an BBC Micro. Probably not a Beeb literally (eg a RPi); rather, something which
+is not resource-hungry. 
+
+<DT>A business plan, or something like it:
+<DD>How to share - should this be:
+<UL>
+<LI>Just me?
+<LI>Me and some close contacts, borrowed from other projects? (This is the current outfit)
+<LI>A bunch of friends with a spot of outsourcing? (This is the next planned stage)
+<LI>A not-for-profit?
+<LI>An actual business/company? (This would only be necessary if larger amounts of money started sloshing around)
+</UL>
+
+<P>And also, how will it be funded?
+<UL>
+<LI>Me and my piggybank? (This is the current setup)
+<LI>Drip-fed from employment I don't currently have? (This is the next planned stage)
+<LI>Sponsorship?
+<LI>A grant/incubator?
+<LI>Self-funding, via a series of steps? (This would be the ideal eventual plan)
+</UL>
+
+</DL>
+
+
+<H3 id="past">Done</H3>
+<P>Here is what's happened so far.
+
+<UL>
+
+<LI>The main FPGA part:
+<UL>
+<LI>Mathematical doodling whilst bored during lockdown.
+<LI>Extended Boolean algebra.
+<LI>Forward-engineering of the problem FPGAs are there to solve, accidentally producing a new type of FPGA.
+<LI>Decided to make the FPGA open-source, partly as users would need to know its inner workings to use it properly,
+partly to raise standards within the industry.
+<LI>An online publishing adventure:
+<UL>
+<LI>Started a subsite, in the process also producing my long-deferred Coding CV, then watched as the datacentre hosting it went down.
+<LI>Moved the subsite to its own subdomain, on a domain on a different WSP, using a different datacentre.
+<LI>Started using GitHub for hosting/sharing, then watched as the PC I used for the initial tests died, due to a PSU issue.
+<LI>Ordered a new PSU, which didn't fit, because the vendor had re-used their part numbers.
+<LI>Blew my CoL (Cost of Living) allowance on a powerful refurb PC, and some electronic bits centred around Raspberry Pi's (RPi's).
+<LI>I also brought the cheapest traditional FPGA I could find, the <A href="https://tinyvision.ai/products/upduino-v3-1">UPduino v3.1</A>, in DIL/USB form factor (ie, a &quot;naked stick&quot;), for tests.
+<BR>Even though it only cost 30USD and I had to solder on the pins myself, it still boasts 5,280 4-input CLBs, some modular BRAM/ALU parts, and a bunch of self-aware I2C &amp;c interfaces, which is far more than I need at this stage. It also carries a built-in programmer, 4MB of flash, and a preflashed blinkenlight test configuration, so I can quickly test it works - which it does!
+</UL>
+
+
+</UL>
+
+<LI>FGPA documentation:
+<UL>
+<LI>Was invited to do a talk by php-sw; realised this plays well with both my FPGA^2 and presentation projects, and can help me write better documentation.
+<LI>Woke up my presentation project, an earlier idea which could become a separate product.
+<LI>Did my talk; asked to do a shorter introductory roadmap talk, before I'd finished writing my first talk.
+<BR>The presentation system prevented all the usual faffing about wondering why PowerPoint on a laptop, doesn't produce a display on the projector.
+<LI>Wrote most of a short talk, but interrupted by life.
+</UL>
+
+
+<LI>Developed the presentation hardware...
+<UL>
+<LI>NutCase: A repurposed RPi4 with a custom case and 8&quot; touch display, which I took along to the first BOSS meeting although it wasn't ready for use then.
+<BR>Issues preventing including power distribution and incompatibilities within chosen setup.
+<BR>Making the enclosures for these, covered my kitchen in bits of molten plastic.
+<LI>NutCase 3 (renumbered from v2): Two RPiZ's, with a local display for notes, and an HDMI output for the projector, which I tried to use at php-sw's February meeting, but couldn't get it all ready in time.
+<BR>Each half works independently, but issues with GPIO communication, related to OS module versioning.
+<LI>All versions use an RF keypad/mouse.
+</UL>
+
+<LI>... and presentation software:
+<UL>
+<LI>The main software was developed quickly, on a different RPi3b+, and worked well first time. It included a subslides feature, but lacked a proper display,
+instead using thumbnail images pilfered from a vector graphics app's toolbar.
+<LI>I separately developed the full-resolution screenbank-switching display routine.
+<LI>Due to pressure of time and having melted my laserprinter in a freak accident earlier in 2024, instead of merging the two codesets,
+I modified the display routines to run the whole show, later realising that a simplified UI was better anyway.
+<LI>Added an early concept of appendices, past the main sequence.
+<LI>Yet to add video. 
+</UL>
+
+<LI>Closed-source AI:
+<UL>
+<LI>After much hair-pulling working out how to make something design itself, in terms of itself, without previously existing; and three goes
+using different approaches and in different Pubs, changed and simplified my initial system to a simpler one: Never over-complicate a system.
+<LI>A rapid &quot;design bounce&quot;, where adapting the FPGA to the AI, and the AI to the FPGA, produced much more elegant versions of both.
+<LI>The system now required no training period, and self-improved by rewriting itself when presented with each more-difficult problem.
+<LI>Achieved quantum-level computing power in classical computing, thanks to maths-led efficiency of design. In other words, I identified and omitted the stupid parts.
+<LI>Revised power estimation, down from 10^14 gen4 TPUs, to 10^8, by rounding down all assumptions. It's still higher than I'm comfortable with, the closest previous TPU improvement, being 1.02&times;10^0 times more powerful.
+<LI>Realised with all this power, it should run at a good speed even in software simulation.
+<LI>Got a basic simulator working, fed it a few problems: It solved them perfectly, completing faster than my centisecond counter could time it. So clearly it is more powerful than a TPU; I just don't have big enough problems to feed it, to make the timer move past zero yet, so I don't yet have any results on how much more powerful.
+<LI>After that burst of activity, printed out my notes, then lapsed back into a state of depression for four months.
+</UL>
+
+<LI>Open-source things to run on the FPGA: (Nothing so far)
+<LI>A devboard: (Nothing so far)
+<LI>Software for a separate host machine: (Nothing so far)
+
+<LI>A business plan, or something like it:
+<UL>
+<LI>Through analysis of the Bristol networking scene, identified and proposed two meetups which were missing: A hardware one (all the rest are software, often only applying 3rd party services), preferably open-source; and an AI one which isn't purely obsessed with LLMs nor applying software other people have written. I worked out how to start these, then found I couldn't currently afford to. 
+<LI>Went along to a meeting of MLops in late 2023, in the impressive and new BT Assembly building, which turned out to be partly a careers fair by BT - fair enough. Speakers commented perhaps they should change the name to LLMops, as everyone in AI seems to be obsessed with them; an effect which kept reoccurring in 2024.
+<LI>Started to be &quot;nagged&quot; when networking about when I was going to start an open-source hardware meetup.
+<LI>Diagnosed with depression, by an LA neuroscientist friend, while completing an unrelated questionnaire. Saw a UK GP about that, whom concurred.
+<LI>Noticed someone-else had picked up the baton I dropped, and started their own open-source hardware meetup, using my research &amp; contacts. Fumed for a short while, then realised they've saved me the effort. It might also stop me being nagged about starting one.
+<LI>Was shocked out of my recently-diagnosed depression, at the inaugural meeting of BOSS (Bristol Open Silicon &amp; Software), by the news that
+Silicon Catalyst UK, wants to give &quot;a few million&quot; to silicon startups, to help them up the cliff-face of an initial silicon fabrication. Er... What's a minimal startup involve?
+<LI>Also at BOSS'es first meeting, listened to info by &amp; about Tiny Tapeout and PragmaIC, both ofwhich I was already aware.
+<LI>Went along to Bristol techSparks' first meeting of Southwest Founders, of 2024. There were experts there in what not to do in business, which sounds like life to me. There was also practice in pitching to a board of investors: I blame Dragon's Den for dramatising this sort of thing. Was invited to the inaugral meeting of AI West, whatever that was. Learnt that the minimal definition of a startup, was defined by whoever was investing in it.
+<LI>Attended the inaugural meeting of AI Brainwave, in the massive offices of Torchbox, which was certainly different, with video in most of the presentations, a feel with much more emphasis upon socialising, and a much-abused free bar. Learned about sponsorship, and how much easier it was to attract than a grant, as with the former you are giving someone advertising they can't buy; whereas with the latter, you are asking them to give you money they won't get back.
+<LI>A little later, went along to the inaugural meeting of AI West, a general support/networking group for those working in AI. During networking,
+got talking to Prof Flach and one of his students, who suggested I talk to specialists within Bristol University. Much to my surprise, I also ended-up talking
+to one of the directors of Graphcore, a company I admire: Earlier that morning, I had been reading about Graphcore in the news.
+<LI>Attended the Bristol SC Expo, although my journey in was complicated by anti-war protestors mistaking the careers fair for an arms fair. The first thing I got to, was a presentation by BT, ending with the speaker being amused that I've been (temporarily) banned from LinkedIn (until I renew my passport and buy a really expensive new phone). BT are obsessed with AI; something I already knew. The range and skillset of their opportunities, is definitely widening.
+<BR>Chatted to the Cyber arm of the NCA (National Crime Agency), at the SC Expo, who were impressed with my measures to keep my new AI safe, and insulated from bad actors. It's not going to be online at all, BTW.
+</UL>
+
+</UL>
+
+
+<H3 id="current">Ongoing</H3>
+<P>What I'm working on currently, or at least what is currently happening or waiting to happen.
+
+<UL>
+
+<LI>Main FPGA part:
+<UL>
+<LI>The design is largely mature, apart from how to apply Rent's Rule to the numbers of LUTs per interconnect, bandwidth of each level of interconnect, and how many levels of interconnect there should be. There will be some layouts which are equivalent, but the ones which are most frugal resource-wise, shall be the ones I use at first.
+<LI>Minor design revisions, as they occur.
+<LI>I'm considering including some FFs in place of some LUTs, until I have better timing tests for the types of FFs which can be constructed using feedback within LUTs. There certainly won't be any CLBs!
+<LI>An &quot;simple-as-possible&quot; parametric HDL design (eg a small RAM, or perhaps a single DEMUX (as HDLs have built-in primitives which describe things like RAM)), as a separate repository, to explore what the roadmap should include, and how well eg GitHub and my own software simulator, handle all that is required of them.
+<LI>Using the temporary W10 version of Quartus II, which I have until I add Linus into my shiny new PC, to decode JTAG HDL designs into schematics, for building a JTAG controller which can run RAM-style parallel access. this is important, for backwards-compatibility.
+<LI>Installing some form of Ubuntu on my new PC. (Note: Any online PCs I use, do not contain any closed-source material.)
+<LI>Using Quartus II or Xilinx Vivado to test HDL snippets, detailed temporal behaviour of different FF designs, and so on.
+</UL>
+
+<LI>FGPA documentation:
+<UL>
+<LI>Delighted by news from php-sw, that they had videoed my <A href="https://youtu.be/TMfGzMqaWeU">March talk</A>, and put it online.
+<BR>Watching it back, there was a lot more stuttering than I was aware of at the time, and the audio wasn't so good. The audio at the time was
+much better; I think this recording only used one microphone, whereas they normally have one clipped to the presenter as well. I was able
+to make some improvements at the time, such as closing the blinds to insulate us from people passing on the bridge, bringing better slides-generating
+equipment, and adjusting the positioning of the projector, but I can't catch everything, and I was concentrating on the talk ahead.
+<LI><A href="#FIND-THIS-DAMN-PAGENAME">Transcribed the talk</A>, supplementing inaudible portions from my memory of my talk, and much speeded-up by YouTube's constantly-improving automatic transcription feature. There was nonetheless, a lot of editing necessary to the automatic translation. Not least, removing the stuttering.
+<LI>Attended a meeting of Bath Toastmasters, as a guest: My first FTF one, after lockdown. (They improve public speaking skills. I'm allowed to attend up to three meetings as a guest, for free, before I have to join if I want to continue.)
+<LI>Started revising this documentation on GitHub.
+</UL>
+
+<LI>Presentation hardware:
+<UL>
+<LI>NutCase 2: A spare RPi3b+, sans display, the simplest solution. I had initially tested a small OLED display, but that turned out to be too small.
+</UL>
+
+<LI>Presentation software:
+<UL>
+<LI>Minor refinements, including merging in parts of the original controller code.
+<LI>
+</UL>
+
+
+<LI>Closed-source AI:
+<UL>
+<LI>Made an appointment with my GP, for better drugs etc, for my depression.
+<BR>The sudden appearance of sunny weather, on Wednesday 8th May 2024, is helping enormously.
+</UL>
+
+<LI>Open-source things to run on the FPGA:
+<UL>
+<LI>Only speculation.
+</UL>
+
+<LI>A devboard:
+<UL>
+<LI>Nothing so far...
+</UL>
+
+<LI>Software for a separate host machine:
+<UL>
+<LI>Nothing so far...
+</UL>
+
+<LI>A business plan, or something like it:
+<UL>
+<LI>Continuing to follow-up with contacts, keep emails concise, and checking none of them are loafing about in people's spam folders.
+<LI>
+</UL>
+
+</UL>
+
+<H3 id="future">Planned</H3>
+<P>Here will be where I hope to go next.
+
+<UL>
+
+<LI>Main FPGA part:
+<UL>
+<LI>Turn the design into HDL, as snippets in both VHDL and Verilog, and test it, both in simulation and on a physical traditional FPGA.
+</UL>
+
+<LI>FGPA documentation:
+<UL>
+<LI>Add slides (which will also require conversion, to open file formats), to my transcription of my long talk.
+<LI>Possibly turn my long talk into a narrated video, preferably narrated by someone-else, and using the slides and pointer-type highlighting directly.
+<LI>A lot more writing, including HDL snippets.
+</UL>
+
+<LI>Presentation hardware:
+<UL>
+<LI>NutCase 4: A [future] development of NutCase 2, with a spare RPiZ v1 and some USB &amp; HDMI expansion.
+<LI>Further experimentation over whether two use two linked machines with independent displays/outputs, or a single one, running two displays. Or maybe just sticking with my current solution/fudge, of hiding my clues to my speaking notes, within the public slides.
+<LI>A better mobile 3D mouse, preferably integrated into the RF keypad.
+<LI>Possibly, a custom-built mobile keypad, with integrated mouse.
+</UL>
+
+<LI>Presentation software:
+<UL>
+<LI>Video experiments, including reincarnating an automatic animation option.
+</UL>
+
+
+<LI>Closed-source AI:
+<UL>
+<LI>Feeding the AI increasingly-complex problems, so it becomes increasingly capable.
+<LI>Giving it a virtual world to experiment in, ie a little physics engine. This would not would make sense to watch with a virtual camera, as it would run far too fast for human perception.
+<LI>(Some plans are themselves closed-source.)
+<LI>Working out what a private API to a user interface, may look like. ie, Something equivalent to what the trendy/clunky LLMs/ANNs use, between the R&amp;D level, and the user level. Everyone seems obsessed with third-party services, and while this can't be online for security reasons, exploring what an API means should reveal other aspects.
+<LI>Test the AI on a traditional FPGA (ie, FPGA^2, with my FPGA softloaded ontop of another one), taking appropriate precautions to keep any data isolated from existing online systems - which probably means buying more computers (again).
+<LI>Separate out a version of the &quot;software simulation software&quot;, so it can be used to simulate only the FPGA. Remove anything even vaguely potentially dangerous, then consider releasing it as open-source. The software itself is fairly simple (in principle - making it work was a whole different situation), as it runs at a coarse level of granularity, and does not attempt (nor need) to simulation electronic behaviour, nor indeed, mid-level logic components. It only simulates how my FPGA is supposed to behave. This simplifies a lot of a things.
+</UL>
+
+<LI>Open-source things to run on the FPGA:
+<UL>
+<LI>Something like a monitor and UI, running within the FPGA itself, thus eliminating the need for a separate host machine at all.
+<LI>Some kind of usage examples.
+</UL>
+
+<LI>A devboard:
+<UL>
+<LI>(TBD)
+</UL>
+
+<LI>Software for a separate host machine:
+<UL>
+<LI>(TBD)
+</UL>
+
+
+<LI>A business plan, or something like it:
+<UL>
+<LI>Seeking out strange new contacts (or is that me?), once the project moves forward a bit more.
+<LI>Finding team members, through more-traditional socialising (any excuse), and recommendations from existing team members.
+</UL>
+
+</UL>
+
+
+
+
+<HR>
+<H2 id="old">Oldstyle Roadmap</H2>
+<P>Note: This may never happen now, and is already being assimilated into the Newstyle Roadmap.
+
+<H3 id="history">Potted History</H3>
 <P>Placeholder: Here will be a brief summary, with dates, probably taken from
 my <A href="explain.html#associated">accidental Blog</A>.
-<H2 name="bottlenecks">Bottlenecks &amp; Workarounds</H2>
-<P>Placeholder: Here will be a long list of bottlenecks I ran into, and how I
-solved them.
-<H2 name="conclusions">Conclusions along the way</H2>
-<P>Placeholder: Here will be a list of the surprisingly things I found out during
-my voyage of discovery.
-<H2 name="future">Future Plans</H2>
-<P>Placeholder: Here will be where I hope to go next.
+
+<H3 id="bottlenecks">Bottlenecks &amp; Workarounds</H3>
+<P>Placeholder: Here will be a long list of bottlenecks I ran into, and how I solved them.
+<H3 id="conclusions">Conclusions along the way</H3>
+<P>Placeholder: Here will be a list of the surprisingly things I found out during my voyage of discovery.
 <HR><P>Back to the <A href="./">main documentation page</A>
 </BODY></HTML>
