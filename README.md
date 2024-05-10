@@ -13,6 +13,17 @@ The first online presence for this project, is/was [freedom.is/svg](http://freed
 
 The previous slow generation of SVG diagrams, held up this documenting process for a while.
 
+## New Contents/Documentation
+
+Rather untidily banged in here, starting from <a href="https://youtu.be/TMfGzMqaWeU">my talk</a> at <a href="https://phpsw.uk/">php-sw</a>, in March 2024.
+
+<details><summary><A href="https://robinhodson.github.io/FPGA/talkstart.html">Documentation Restart</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#intro">Transcript</A>
+<LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#slides">Collection of slides to bung in</A>. These will be integrated, eventually.
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html">Roadmap</A>, including past steps.
+</UL>
+
 ## Contents
 
 [Main documentation](https://robinhodson.github.io/FPGA/), experimentally also merged into this readme:
