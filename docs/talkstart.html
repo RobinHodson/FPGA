@@ -1,1 +1,342 @@
-talkstart
+<!DOCTYPE html>
+<HTML lang="en-GB"><HEAD>
+<!--Online name /FPGA/docs/talkstart.html-->
+<!--From video transcript (hhp)-->
+<TITLE>FPGA^2 Longtalk</TITLE>
+<META charset="utf-8">
+<META name="viewport" content="width=device-width, initial-scale=1">
+<STYLE>
+DT{font-weight:bold;margin-top:1em}
+.slide{color:#088}
+.audio{color:#4C0}
+.action{color:#A0C}
+.time{color:#008;background:#CFF}
+.question{color:#800}
+.mc{color:#808}
+.comments{color:#228;background:#FFC}
+</STYLE>
+<LINK rel="stylesheet" href="fpga.css" type="text/css">
+</HEAD><BODY>
+<H1>Talkstart</H1>
+
+<H2>Contents</H2>
+<UL>
+<LI><A href="#key">Key</A>
+<LI><A href="#notes">Notes</A>
+<LI><A href="#preamble">Preamble</A>
+<LI><A href="#intro">Intro</A>
+<LI><A href="#trad-comp">Traditional Computers</A>
+<LI><A href="#trad-fpga">Traditional FPGAs</A>
+<LI><A href="#improvements">My Improvements</A>
+<LI><A href="#maths">Maths Humour</A>
+<LI><A href="#conclusion">Conclusion</A>
+<LI><A href="#slides">Slides</A>
+</UL>
+
+
+<H2 id="key">Key</H2>
+
+<P>Some text is highlighted:
+<UL>
+<LI><SPAN class="slide">Slides indicate a change of slide.</SPAN>
+<LI><SPAN class="audio">Audio indicates non-verbal sound, eg applause or music.</SPAN>
+<LI><SPAN class="action">Actions show where something non-verbal has taken place, eg indicating parts of a slide with the pointer.</SPAN>
+<LI><SPAN class="time">Timestamps show how far along the video is, in the format MM:SS.</SPAN>
+<LI><SPAN class="question">Questions are when someone-else speaks.</SPAN>
+<LI><SPAN class="comments">Comments were not present in the original talk.</SPAN>
+</UL>
+
+
+<H2 id="notes">Notes</H2>
+
+<P>Transcript:
+
+<P>Note: Only one microphone was used, so the real-life sound quality was a little better, although I was still surprised to be stuttering a little.
+
+<P class="audio">[Music]
+<P class="slide">[Slide: php-sw logo; FPGA^2: An open-source FPGA  <SPAN class="time">0:00</SPAN>]
+<P class="slide">[Slide: php-sw Sponsors; SR2  <SPAN class="time">0:05</SPAN>]
+
+<H2 id="preamble">Preamble</H2>
+
+<P class="slide">[Slide: Title card  <SPAN class="time">0:12</SPAN>]
+
+<P>Okay this is partly to force me to write better documentation - doing this is linked to working out how to write the documentation.
+
+<P>I've written an open source FPGA and thought I'd be among good company in the open cores movement, until I discovered that no one else has written a
+<SPAN class="comments">[new/improved]</SPAN> open source FPGA... So I don't have anyone to copy or anything, and I'm tried it out as a business, to begin with.
+
+
+
+<H2 id="intro">Intro</H2>
+
+<P class="slide">[Slide: Breadboard vs FPGA  <SPAN class="time">0:46</SPAN>]
+
+<P>First thing: What is an FPGA?
+
+<P>In the finest traditions of acronyms it doesn't sound like what it is: It's a Field Programmable Gate Array.
+
+<P>... Because it's not programmable, not done in the field really, doesn't involve any gates, and is only vaguely an array;
+<P class="audio">[Laughter]
+<P>It's better described as reconfigurable logic.
+
+<P class="action">(Fumble to activate onscreen mouse pointer)
+<P>I'll just see if I can... start the desk-
+<BR>Ah yes; 'pointer still works: Good.
+
+<P>This breadboard [left]; in contrast with the traditional way of prototyping circuits before you burn a PCB or whatnot, you have your breadboard, which has various predefined strips here [indicates] and a power rail here [indicates],
+
+<P class="action">(and this mouse isn't tremendous but it's better than nothing <SPAN class="comments">[I also developed the presentation hardware/software]</SPAN>)
+
+<P>... and you plug your components into the strips and it makes a circuit and that's all well and good for testing things.
+
+<P>And an FPGA [right] is the opposite where you have your predefined logic blocks which can redefine themselves - think of them as gates or counters or whatever; and the interconnect itself is flexible, so you can define that via your computer plugged into it to monitor what's going on; and you can digitally redefine the interconnects and the FPGA is all inside the chip. So you redefine the interconnect as lots of little switches - memory elements connected to switches - and you can even prototype digital circuits up to a computer and everything there.
+
+
+<H2 id="trad-comp">Traditional Computers</H2>
+
+<P class="slide">[Slide: The Mystery Box  <SPAN class="time">2:47</SPAN>]
+<P>It's important to put it into context...
+<BR>I did have a better slide, but I managed to overwrite it because I was in a hurry.
+
+<P>Putting it in context of the mystery box which turns your code into into doing something useful.
+
+<P>I just skip ahead here [checks the next slide] to see what- Oh yes right, yeah: It's contrasting the clunky way a computer works with a kind of flow chart that you'd use in your program, but an FPGA kind of works like the flowchart in the first place.
+
+<P>It's kind of a physical arrangement, and bottom flowchart, and follows a little animation here...
+<P class="slide">[Slide: Step-through animation comparing serial and supercomputer architectures  <SPAN class="time">3:28</SPAN>]
+
+<P class="action">(... where you have on the left side here you represent...
+Right, no it's... No, there it is. Right. I would try my alternative mouse but I don't want to drag on into the Pub time...)
+
+<P>Your program here (deep stack) your instruction register just stores the representation of program counter moving and the data to be manipulated. And the other fun bits of the processor, which do stuff. And down here [indicates FPGA area], kind of like your program flow chart, but at the end it will run, in an electronic way.
+
+<P>Right. So I'll switch the pointer off, and you can see the very clunky way in which so-called modern computers spend most of their time shovelling data around rather than doing anything with it; and it's all the worse with the slow speed of memory and fast speed of processors and multiple caches, and all that kind of thing. So it's taking about 40 steps or so to add two numbers and then multiply them together, and coming up to the end this will switch the off switch there will switch on and it will flow through in less than a clock cycle, so the FPGA way is better.
+
+<P>There's a joke there with Deep Thought, and the Hitch-hiker's Guide to the Galaxy stuff[, with the Earth computer here.]
+<P class="action">[Moves pointer to relevant parts of the slide] 
+<P class="audio">[Laughter]
+
+
+<H2 id="trad-fpga">Traditional FPGAs</H2>
+
+<P class="slide">[Slide: Traditional Structure  <SPAN class="time">5:12</SPAN>]
+<P>Right, so the traditional structure of FPGAs is you have the these little squares called configurable logic blocks which are the components you need to connect and the grid of an interconnect which is the bit that connects, and which I described to you earlier. The detail of that is the junctions of the interconnect you have these complex little switching circuits which route things around and coming off the complex logic blocks as inputs and outputs they plug in where they need to on the interconnect, and so it splits into the complex logic blocks and the interconnect; and those are the two things I've changed in my design.
+
+
+<H2 id="improvements">My Improvements</H2>
+
+<P class="slide">[Slide: My Improvements (Index)  <SPAN class="time">6:05</SPAN>]
+
+<P>-Which are all a bit...
+<P>That[ slide]'s a bit useless... I'll come back to that.
+
+<P class="slide">[Slide: My Improvements (Grid &rarr; Fractal)  <SPAN class="time">6:10</SPAN>]
+<P>Firstly the grid: I've gone with a fractal grid instead because of a mathematical principle called Rent's Rule means that the square grid has too many unused bits in it: Most of what you want to connect is like modular and then you collect other modules made up of modules and so forth; so you really only need a fractal interconnect and Rent's Rule will tell me how much of each [level] I need.
+
+<P>It goes from the equivalent of complex logic blocks here, several of them into one level of interconnect. And then that level of interconnect goes into a bigger interconnect, and eventually the end-level interconnect goes off to the inputs and outputs of the chip, which just lead into the outside world.
+
+<P>I've also added kind of inputs and outputs which are readable as memory locations, so you can self-modify what it's doing.
+
+<P class="slide">[Slide: My Improvements (replace by one LUT)  <SPAN class="time">7:24</SPAN>]
+<P>Let's see; there this is the traditional configurable logic block which looks like a complete mess to me... Sometimes called the complex logic block and they're not kidding. Instead of just having a LUT with one lookup table like a kind of universal gate, a bit like a fast memory, and you have several binary inputs coming in and one binary output; and they bung in a flip-flop unnecessarily into more complex logic... But you could could actually put that [flip-flop] in the LUT so that's a inefficiency.
+
+<P class="action">(And I think I have this... Do I have the- No, no I don't have that. Right.)
+
+<P class="slide">[Slide: My Improvements (LUT flipping)  <SPAN class="time">8:04</SPAN>]
+<P>Here's the traditional heart of it; the LUT and down here you have coming in here, simplified 2-bit binary information and there are, you need for a combination of 16 states, which can be represented by 4 memory cells coming in there and that can define any 2-input gate which... Unfortunately this only provides one output and that is the traditional design, so my design is to flip this thing around.
+
+<P>And that power thing there just turns it into a simple decoder if you define memory cells within your LUT, and you might want to clear them, then you just switch that off and on, and it clears state, which is a necessary feature if you do that.
+
+<P>You can define a follow-on bit; memory cells which, if say both these inputs are on [indicates inputs on the right LUT], it will output along this line and this configuration here represents an AND gate so it will only fire off this output, if it's like an AND gate; this one for an OR gate; this one for a NAND gate. So you can have three (you have as many outputs as you like there).
+
+<P>Using the traditional one, you'd have to have one LUT for each output, so it's a bit more compact there.
+
+<P class="slide">[Slide: Interactive animation LUT Demo (add two lines)  <SPAN class="time">9:57</SPAN>]
+<P>This is a sort of demo showing (so I like to show what's going on inside things) this is the demultiplexer. I always get those two mixed up; they're the same thing and it depends, they call them the multiplexer if you connect it the other way around, but it's exactly the same circuit and sometimes you call it a decoder; once again the same circuit.
+
+<P>So you've got the these two inputs coming in and with representing the number zero at the moment and line zero is connected there and that triggers off these three lines which represents zero on the 7-segment display.
+
+<P>So that's both adding up the numbers of inputs, and producing an output; compressing quite a lot of logic into one place.
+
+<P>I can run that across there and know each time it produces the output so that's that's like compressing the truth table (if you know what that is, which I should have defined before), but into an easy block.
+
+<P>So you don't need a flip-flop there because you can form a flip-flop yourself by feeding the output back into the input.
+
+<P class="comments">[I have a demo of a FF in a LUT, but didn't include it here, due to time constraints.]
+
+<P class="slide">[Slide: Interactive animation LUT Demo (Decode binary as Hex)  <SPAN class="time">11:27</SPAN>]
+<P>And this is a slightly...
+<BR>it's not going to run through all 16:
+<BR>I didn't have the patience to define that.
+
+<P>This has your 4-bit input representing 16 possible states, with a little decoder there running into this thing which shows from 0 to F or would, if I defined all of them, so I'm just going to run through a few...
+
+<P>Normally you would not have 7 outputs coming off one LUT; a maximum of four generally, so you'd use two of these [LUTs] in inside your chip (because most applications do not require all outputs).
+
+<P>Right, what have I got next...
+<P class="slide">[Slide: My Improvements (BRAM partitioning)  <SPAN class="time">12:15</SPAN>]
+<P>Oh yes; and beyond beyond the simple stuff, some FPGA's have what they call Block RAM (BRAM) which is internal fast RAM. You can define that [manually] within the LUTs, but it wastes space, and I decided because there's spare memory in the configuration memory (which defines what the LUTs do), to reuse that.
+
+<P class="comments">[[Note: The partition would be controlled with a register, and LUTs used as BRAM could very simply be disabled by setting the input of their DEMUX's to 0. That would also reduce their power consumption. It may also be sensible to disconnect their level of interconnect from the higher interconnects, by disabling the inter-interconnect connections - but that requires little extra logic, because those connecting controllers have to exist anyway, as part of the inter-interconnect.]
+
+<P>So that above the <SPAN class="comments">[indicated dividing]</SPAN> line, it's accessed as Block RAM, and below the line it's accessed as normal reconfigurable stuff, so you can make more efficient use of the chip(... I haven't animated moving the partition, because I don't see the point).
+
+<P class="slide">[Slide: My Improvements (Reverse LUT)  <SPAN class="time">13:12</SPAN>]
+<P>And this is to remind me to talk about stuff of flipping the multiplexer thing around, but I've already done that...
+
+<P class="slide">[Slide: My Improvements (RAM-style access)  <SPAN class="time">13:21</SPAN>]
+<P>RAM-style access: Yes, the JTAG access for FPGAs comes from when chips were much, much more expensive and there was a much smaller area so they use the kind-of shifting information into it and out of it, which is a bit crazy because that carries on today even though we have plenty of chip area to play with and the logic is tremendously fast. It's using a slow method to access a fast chip, and that seems a little crazy to me.
+
+<P>So I'm going to implement traditional RAM-style access. It's so you can specify what you want to look at, and just go directly to it. -But I'll keep the JTAG for backwards-compatibility <SPAN class="comments">[emulated via the fast access]</SPAN>.
+
+<P class="slide">[Slide: My Improvements (Internal I/O)  <SPAN class="time">14:10</SPAN>]
+<P>and that internal I/O...; I've already mentioned... I just threw this down very quickly as you can tell.
+
+<P class="slide">[Slide: My Improvements (memory protection)  <SPAN class="time">14:19</SPAN>]
+<P>Memory protection and is important because with self-modification, one application of that is you might have some kind of... Where you normally have a host machine external to it, you could perform much of the functions of the host machine inside part of the FPGA; and then modify another part of it with the first part, you need memory protection so you don't accidentally overwrite the thing that you're doing the modification with.
+
+<P class="slide">[Slide: My Improvements (banked config memory)  <SPAN class="time">14:57</SPAN>]
+<P>That's... [checks I'm not running over time: No].
+<BR>Some applications of reconfigurable logic is when you have a block of it as part of a processor and you might want it to to say, decode JPEGs, and another time you might want it to encode video or something. But if you overwrote or reconfigured it in the middle of using your computer, it would defeat the object of speeding things up - it take so long to write that actually code into it - so having banked memory so you can have alternate configurations for the same FPGA, and select which one you want; and then that should make that easier -or practical.
+
+<P class="slide">[Slide: My Improvements (h/ware Rand)  <SPAN class="time">15:49</SPAN>]
+<P>... And my only concession to quantum computing; the only thing useful I found quantum computing for, is generating practically unpredictable random numbers. -Via a thing called avalanche breakdown. You can do that... I haven't included the circuit diagram here, because it is weird, but it is valuable to have a hardware random number generator for such markets as cryptography and some types of AI [eg evolutionary computing]. So I'm I'm trying to add in what users will want.
+
+<P class="slide">[Slide: My Improvements (s/ware bloat)  <SPAN class="time">16:31</SPAN>]
+<P>The traditional FPGAs, because they hide how they work, they have a lot of software bloat on the computer used to configure it; and it's partly to keep things secret, and partly because they sell an expensive thing, and they want to offer lots of tools. But my open source thing, it should not only be possible to access the detail of it directly, because you'll [need to] know what the detail is, otherwise it's like trying to use the the first [example]; the electronic breadboard, blindfolded. You wouldn't do that. So, you should simplify it, and you should be able to get smaller amounts of software, and a less expensive PC to operate it. I had to upgrade to a much more expensive PCs to start to work with [traditional] FPGAs.
+
+<P class="slide">[Slide: Quick list of misc parts  <SPAN class="time">17:38</SPAN>]
+<P>Right, what else here... JTAG data...
+<BR>These are all the internal things which are run to have inside it. -Most of which are standard. I'll skip that to compress time.
+
+
+<H2 id="maths">Maths Humour</H2>
+
+<P class="slide">[Slide: Maths humour (Preceding)  <SPAN class="time">17:50</SPAN>]
+<P>And here's some humour at the end. The preceding situation of what before there were FPGA's: People just had lookup tables in a chip, and they made them quite large. Eg 20 input and output lines, which led to about a million decode lines, which is as much as they could stuff into a chip.
+
+<P>The very smallest FPGA at the moment has 64 4-input LUTs. So that gives a maximum number of input/output lines, of 256. Someone asked me the other day, why don't you just have one giant LUT? How many decode lines would 2 to the power of 256 be?
+
+<P class="slide">[Slide: Maths humour (Numbers 1)  <SPAN class="time">18:46</SPAN>]
+<P>And yeah, that's just what what I just said.
+
+<P class="slide">[Slide: Maths humour (Numbers 2)  <SPAN class="time">18:52</SPAN>]
+<P>... And it turns out to be, That. [Indicates very large number.]
+<P class="audio">[Laughter]
+<P>-Which is a lot larger than I was expecting. In fact that's an error, and the real number is much bigger, but there's nothing to compare a ridiculously large... That, at least, you can compare to things in this universe.
+<P class="audio">[Laughter]
+<P>[With ]The true number, the entire universe would be smaller than a pixel to anything you compare it to, so that's not going to work. So we go with this one.
+
+<P class="slide">[Slide: Maths humour (Universe)  <SPAN class="time">19:23</SPAN>]
+<P>That is the size of the chip that would have to be compared to the known universe, and that's clearly impractical...
+<P class="audio">[Laughter]
+<P>There is... so that explains why they stopped using single LUTs they went to the more advanced design much more efficient. That is just a very large 2D grid [of 5nm cubes]. So how big would a 3D grid be? Is that more practical?
+
+<P class="slide">[Slide: Maths humour (Galaxy)  <SPAN class="time">19:51</SPAN>]
+<P>Well not exactly,
+<P class="audio">[Laughter]
+<P>because that's clear it would take millions of years to construct that and probably about 40,000 [years to run a calculation]. That's about 10,000 light years across so just due to the light speed barrier, that's impractical and anyway it would undergo gravitational collapse and become a black hole before you run a calculation.
+
+
+<H2 id="conclusion">Conclusion</H2>
+
+<P class="slide">[Slide: Questions?  20:16]
+<P>Right. So that's it <SPAN class="comments">[why we don't just use one big LUT]</SPAN> and that's shows the importance of getting the maths right before you start designing anything.
+<P class="audio">[Laughter]
+<P class="audio">[Applause]
+
+<P>So, any questions? -Or just go off down the Pub...
+
+<P class="question">Question 1:  <SPAN class="time">20:38</SPAN>
+<BR>Are you selling the hardware? Like, is it there just a precept, like the open source thing, is it the specification, the design of it?
+
+<P><SPAN class="time">20:49</SPAN>
+<P>Well I'm making it open source to try and raise standards in the industry because no else has an [practical/improved] open source one, and I think I've thought of a few things that the closed-source people haven't thought of... Or maybe they have thought of them and because it's closed-source we don't know.
+
+<P>I intend to; at the moment it's just diagrams on paper getting at the thing refined, and I'm starting to run this software simulation on a Raspberry Pi. And after that, I'll run the FPGA design soft-loaded onto a traditional FPGA, and then I'll look at things like Tiny&nbsp;Tapeout and try to go into silicon.
+
+<P>I have various things that can run on it, like a kind of AI, although that that looks surprisingly powerful - dangerously powerful in fact - so I'm keeping that closed-source <SPAN class="comments">[as a controlled offline service - NCA approves]</SPAN> because I like to make some profit somewhere...
+
+<P class="audio">[Laughter]
+
+
+<P>Yes?
+
+<P class="question">Question 2a:  <SPAN class="time">21:53</SPAN>
+<BR>How much will a tape-out... Tape-out is getting the chips made, right?
+
+<P>Yes.  <SPAN class="time">21:58</SPAN>
+
+<P class="question">Question 2b:  21:59
+<BR>How much would you need to get a batch of chips made?
+<BR>My understanding is it's like...
+
+<SPAN class="time">22:04</SPAN>
+<P>Well normally millions <SPAN class="comments">[grants are available]</SPAN> but Tiny&nbsp;Tapeout is this Spanish-run outfit where, with the support of Google, they let you do it for $100 plus P&P, except your design lives with a hundred other designs in a subdivided chip and it runs quite slowly... [they will let you use the whole chip, for $10K.]
+
+<P>And they say the thing that ARM and so forth don't tell you is they don't just burn a chip and sell it; it takes dozens possibly hundreds of iterations to get the thing working; it's much longer to debug it than other things. So 'probably cost a few thousand to run through debug and everything, but they let me do it at a reduced cost if you have open source, so this is open source and that qualifies to a reduced cost, which saves me a lot of hassle. -And the profitable stuff is closed-source; that's separate from it.
+
+<P>(Note: It's possible this will become profitable at a fairly early stage, eg an FPGA-on-FPGA devboard, and thus self-funding.)
+
+<P class="question">MC:  <SPAN class="time">23:17</SPAN>
+<P>Looks like we're all done, thank you very much.
+
+<P>Right, okay.
+
+<P class="audio">[Applause]
+
+<P class="slide">[Slide: php-sw logo; FPGA^2: An open-source FPGA  23:19]
+
+<P>Thanks.
+
+<P class="slide">[Slide: php-sw Sponsors; SR2  23:22]
+<P class="slide">[End of video:  23:25]
+
+
+
+<H2 id="slides">Slides</H2>
+
+<P><B>Note: These slides will be out of order, initially.</B>
+
+<P>Currently, no slides are converted yet. ... Here's a list of slides, instead:
+
+<UL>
+<LI>0:00: php-sw logo; FPGA^2: An open-source FPGA
+<LI>0:05: php-sw Sponsors; SR2
+<LI>0:12: Title card
+<LI>0:46: Breadboard vs FPGA
+<LI>2:47: The Mystery Box
+<LI>3:28: Step-through animation comparing serial and supercomputer architectures
+<LI>5:12: Traditional Structure
+<LI>6:05: My Improvements (Index)
+<LI>6:10: My Improvements (Grid &rarr; Fractal)
+<LI>7:24: My Improvements (replace by one LUT)
+<LI>8:04: My Improvements (LUT flipping)
+<LI>9:57: Interactive animation LUT Demo (add two lines)
+<LI>11:27: Interactive animation LUT Demo (Decode binary as Hex)
+<LI>12:15: My Improvements (BRAM partitioning)
+<LI>13:12: My Improvements (Reverse LUT)
+<LI>13:21: My Improvements (RAM-style access)
+<LI>14:10: My Improvements (Internal I/O)
+<LI>14:19: My Improvements (memory protection)
+<LI>14:57: My Improvements (banked config memory)
+<LI>15:49: My Improvements (h/ware Rand)
+<LI>16:31: My Improvements (s/ware bloat)
+<LI>17:38: Quick list of misc parts
+<LI>17:50: Maths humour (Preceding)
+<LI>18:46: Maths humour (Numbers 1)
+<LI>18:52: Maths humour (Numbers 2)
+<LI>19:23: Maths humour (Universe)
+<LI>19:51: Maths humour (Galaxy)
+<LI>20:16: Questions?
+<LI>23:19: php-sw logo; FPGA^2: An open-source FPGA
+<LI>23:22: php-sw Sponsors; SR2
+<LI>23:25: End of video:
+</UL>
+
+
+
+
+<HR><P>Back to the <A href="./">main documentation page</A>
+</BODY></HTML>
