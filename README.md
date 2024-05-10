@@ -21,10 +21,26 @@ Rather untidily banged in here, starting from <a href="https://youtu.be/TMfGzMqa
 <UL>
 <LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#intro">Transcript</A>
 <LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#slides">Collection of slides to bung in</A>. These will be integrated, eventually.
-<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html">Roadmap</A>, including past steps.
 </UL>
+</details>
+<details><summary><A href="https://robinhodson.github.io/FPGA/roadmap.html">Roadmap</A></summary>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#new">Newstyle Roadmap</A>
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#past">Done</A> (Refumbled documentation from talks)
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#current">Ongoing</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#future">Future Plans</A>
+</UL>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#old">Oldstyle Roadmap</A> (Old structured documentation)
+<UL>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#history">Potted History</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#bottlenecks">Bottlenecks &amp; Workarounds</A>
+<LI><A href="https://robinhodson.github.io/FPGA/roadmap.html#conclusions">Conclusions along the way</A>
+</UL>
+</UL>
+</details>
 
-## Contents
+## (Old/original) Contents
 
 [Main documentation](https://robinhodson.github.io/FPGA/), experimentally also merged into this readme:
 
