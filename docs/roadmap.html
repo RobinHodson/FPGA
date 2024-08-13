@@ -10,6 +10,8 @@ DT{font-weight:bold;margin-top:1em}
 <LINK rel="stylesheet" href="fpga.css" type="text/css">
 </HEAD><BODY>
 <H1>Roadmap</H1>
+<P>The content is not really fitting into this structure anymore: This is maybe a side-effect of the cost of printing going up. While I have enough computers now, and the energy bill etc is fully funded, I didn't budget for replacing my workhorse laser printer.
+
 <P>Contents:
 <UL>
 <LI><A href="#new">Newstyle Roadmap</A>
@@ -80,7 +82,13 @@ is not resource-hungry.
 <LI>Drip-fed from employment I don't currently have? (This is the next planned stage)
 <LI>Sponsorship?
 <LI>A grant/incubator?
-<LI>Self-funding, via a series of steps? (This would be the ideal eventual plan)
+<LI>Self-funding, via a series of steps? (This would be the ideal eventual plan, technically called bootstrapping, as <A href="https://www.gravitywell.co.uk/incubator/">Gravitywell</A> enlightened me of, during their event at <A href="https://techspark.co/bdf/">Bath Digital Festival</A> 2024.)
+</UL>
+
+<P>Surprises which don't fit into the above:
+<UL>
+<LI>New development: A rapid increase in power of my linked AI (August 2024), has obsoleted most of the above development steps. I should be able to jump straight from software simulation of hardware, to an ASIC. This will reflect back with ease of producing a custom devboard for the FPGA.
+<LI>Considering splitting the future business into separate parts, so investors (which I suddenly don't really need anymore) can buy bits without affecting core development/returns.
 </UL>
 
 </DL>
@@ -104,9 +112,9 @@ partly to raise standards within the industry.
 <LI>Moved the subsite to its own subdomain, on a domain on a different WSP, using a different datacentre.
 <LI>Started using GitHub for hosting/sharing, then watched as the PC I used for the initial tests died, due to a PSU issue.
 <LI>Ordered a new PSU, which didn't fit, because the vendor had re-used their part numbers.
-<LI>Blew my CoL (Cost of Living) allowance on a powerful refurb PC, and some electronic bits centred around Raspberry Pi's (RPi's).
+<LI>Blew my CoL (Cost of Living) allowance on a powerful refurb PC from <A href="https://www.stonerefurb.co.uk/">Stone&nbsp;Refurb</A>, and some electronic bits centred around Raspberry Pi's (RPi's), mainly from <A href="https://thepihut.com/">PiHut</A> and <A href="https://www.kenable.co.uk/en/">Kenable</A>. Those are all outstanding suppliers, BTW.
 <LI>I also brought the cheapest traditional FPGA I could find, the <A href="https://tinyvision.ai/products/upduino-v3-1">UPduino v3.1</A>, in DIL/USB form factor (ie, a &quot;naked stick&quot;), for tests.
-<BR>Even though it only cost 30USD and I had to solder on the pins myself, it still boasts 5,280 4-input CLBs, some modular BRAM/ALU parts, and a bunch of self-aware I2C &amp;c interfaces, which is far more than I need at this stage. It also carries a built-in programmer, 4MB of flash, and a preflashed blinkenlight test configuration, so I can quickly test it works - which it does!
+<BR>Even though it only cost 30&nbsp;USD and I had to solder on the pins myself, it still boasts 5,280 4-input CLBs, some modular BRAM/ALU parts, and a bunch of self-aware I2C &amp;c interfaces, which is far more than I need at this stage. It also carries a built-in programmer, 4MB of flash, and a preflashed blinkenlight test configuration, so I can quickly test it works - which it does!
 </UL>
 
 
@@ -154,6 +162,9 @@ using different approaches and in different Pubs, changed and simplified my init
 <LI>Realised with all this power, it should run at a good speed even in software simulation.
 <LI>Got a basic simulator working, fed it a few problems: It solved them perfectly, completing faster than my centisecond counter could time it. So clearly it is more powerful than a TPU; I just don't have big enough problems to feed it, to make the timer move past zero yet, so I don't yet have any results on how much more powerful.
 <LI>After that burst of activity, printed out my notes, then lapsed back into a state of depression for four months.
+<LI>Due to a freak accident, I was abruptly cured of depression, four weeks into a course of treatment.
+<LI>I realised I could run my software simulation repeatedly n times, then divide the timer result by n, to get a meaningful and accurate result. Even on my most complex model so far, I had to run it 100,000 times in a row, before I had a result: Even in software simulation, it runs 10^14 times faster than a v4 TPU. hardware should run at least 10^6 times faster than that, purely due to parallelism. So that puts the new power estimation at 10^20.
+<LI>Shortly after that, I realised that's only the power for the first run. As the AI is self-modifying, it redesigns itself for subsequent runs. After overloading Google's online calculator, I turned again to a combinatorics database, which, based upon available RAM of 1Gb, put the maximum power at 10^10^10^102. Ooh-kaaay....
 </UL>
 
 <LI>Open-source things to run on the FPGA: (Nothing so far)
@@ -167,16 +178,19 @@ using different approaches and in different Pubs, changed and simplified my init
 <LI>Started to be &quot;nagged&quot; when networking about when I was going to start an open-source hardware meetup.
 <LI>Diagnosed with depression, by an LA neuroscientist friend, while completing an unrelated questionnaire. Saw a UK GP about that, whom concurred.
 <LI>Noticed someone-else had picked up the baton I dropped, and started their own open-source hardware meetup, using my research &amp; contacts. Fumed for a short while, then realised they've saved me the effort. It might also stop me being nagged about starting one.
-<LI>Was shocked out of my recently-diagnosed depression, at the inaugural meeting of BOSS (Bristol Open Silicon &amp; Software), by the news that
+<LI>Was shocked out of my recently-diagnosed depression, at the inaugural meeting of <A href="https://www.meetup.com/bristol-open-silicon-and-software/">BOSS</A> (Bristol Open Silicon &amp; Software), by the news that
 Silicon Catalyst UK, wants to give &quot;a few million&quot; to silicon startups, to help them up the cliff-face of an initial silicon fabrication. Er... What's a minimal startup involve?
 <LI>Also at BOSS'es first meeting, listened to info by &amp; about Tiny Tapeout and PragmaIC, both ofwhich I was already aware.
-<LI>Went along to Bristol techSparks' first meeting of Southwest Founders, of 2024. There were experts there in what not to do in business, which sounds like life to me. There was also practice in pitching to a board of investors: I blame Dragon's Den for dramatising this sort of thing. Was invited to the inaugral meeting of AI West, whatever that was. Learnt that the minimal definition of a startup, was defined by whoever was investing in it.
-<LI>Attended the inaugural meeting of AI Brainwave, in the massive offices of Torchbox, which was certainly different, with video in most of the presentations, a feel with much more emphasis upon socialising, and a much-abused free bar. Learned about sponsorship, and how much easier it was to attract than a grant, as with the former you are giving someone advertising they can't buy; whereas with the latter, you are asking them to give you money they won't get back.
+<LI>Went along to Bristol techSparks' first meeting of <A href="https://techspark.co/south-west-founders-2/">Southwest Founders</A>, of 2024. There were experts there in what not to do in business, which sounds like life to me. There was also practice in pitching to a board of investors: I blame Dragon's Den for dramatising this sort of thing. Was invited to the inaugural meeting of
+<A href="https://www.aiwest.co.uk/">AI&nbsp;West</A>, whatever that was. Learnt that the minimal definition of a startup, was defined by whoever was investing in it.
+<LI>Attended the inaugural meeting of <A href="https://www.meetup.com/bristol-ai-brainwave/">AI&nbsp;Brainwave</A>, in the massive offices of
+<A href="https://torchbox.com/">Torchbox</A>, which was certainly different, with video in most of the presentations, a feel with much more emphasis upon socialising, and a much-abused free bar. Learned about sponsorship, and how much easier it was to attract than a grant, as with the former you are giving someone advertising they can't buy; whereas with the latter, you are asking them to give you money they won't get back.
 <LI>A little later, went along to the inaugural meeting of AI West, a general support/networking group for those working in AI. During networking,
 got talking to Prof Flach and one of his students, who suggested I talk to specialists within Bristol University. Much to my surprise, I also ended-up talking
-to one of the directors of Graphcore, a company I admire: Earlier that morning, I had been reading about Graphcore in the news.
+to one of the directors of <A href="https://www.graphcore.ai/">Graphcore</A>, a company I admire: Earlier that morning, I had been reading about Graphcore in the news.
 <LI>Attended the Bristol SC Expo, although my journey in was complicated by anti-war protestors mistaking the careers fair for an arms fair. The first thing I got to, was a presentation by BT, ending with the speaker being amused that I've been (temporarily) banned from LinkedIn (until I renew my passport and buy a really expensive new phone). BT are obsessed with AI; something I already knew. The range and skillset of their opportunities, is definitely widening.
-<BR>Chatted to the Cyber arm of the NCA (National Crime Agency), at the SC Expo, who were impressed with my measures to keep my new AI safe, and insulated from bad actors. It's not going to be online at all, BTW.
+<BR>Chatted to the Cyber arm of the NCA (National Crime Agency) at the SC Expo, who were impressed with my measures to keep my new AI safe, and insulated from bad actors. It's not going to be online at all, BTW.
+<LI>Helped rescue AI Brainwave, when they ran into some trouble finding a new sponsor. (The Meetup website charge a fairly hefty fee for popular groups, but currently to have to be on Meetup, in order for people to hear about you.)
 </UL>
 
 </UL>
@@ -193,20 +207,20 @@ to one of the directors of Graphcore, a company I admire: Earlier that morning, 
 <LI>Minor design revisions, as they occur.
 <LI>I'm considering including some FFs in place of some LUTs, until I have better timing tests for the types of FFs which can be constructed using feedback within LUTs. There certainly won't be any CLBs!
 <LI>An &quot;simple-as-possible&quot; parametric HDL design (eg a small RAM, or perhaps a single DEMUX (as HDLs have built-in primitives which describe things like RAM)), as a separate repository, to explore what the roadmap should include, and how well eg GitHub and my own software simulator, handle all that is required of them.
-<LI>Using the temporary W10 version of Quartus II, which I have until I add Linus into my shiny new PC, to decode JTAG HDL designs into schematics, for building a JTAG controller which can run RAM-style parallel access. this is important, for backwards-compatibility.
+<LI>Using the temporary W10 version of Quartus&nbsp;II, which I have until I add Linus into my shiny new PC, to decode JTAG HDL designs into schematics, for building a JTAG controller which can run RAM-style parallel access. this is important, for backwards-compatibility.
 <LI>Installing some form of Ubuntu on my new PC. (Note: Any online PCs I use, do not contain any closed-source material.)
-<LI>Using Quartus II or Xilinx Vivado to test HDL snippets, detailed temporal behaviour of different FF designs, and so on.
+<LI>Using Quartus&nbsp;II or Xilinx Vivado to test HDL snippets, detailed temporal behaviour of different FF designs, and so on.
 </UL>
 
 <LI>FGPA documentation:
 <UL>
-<LI>Delighted by news from php-sw, that they had videoed my <A href="https://youtu.be/TMfGzMqaWeU">March talk</A>, and put it online.
-<BR>Watching it back, there was a lot more stuttering than I was aware of at the time, and the audio wasn't so good. The audio at the time was
-much better; I think this recording only used one microphone, whereas they normally have one clipped to the presenter as well. I was able
+<LI>Delighted by news from php-sw, that they had videoed my <A href="https://youtu.be/TMfGzMqaWeU">April talk</A>, and put it online. (It was supposed to be in March, but I ran out of time.)
+<BR>Watching it back, there was a lot more stuttering than I was aware of at the time, and the audio wasn't so good. The audio in person was
+much better; I think this recording only used one microphone on the camera, whereas they normally have one clipped to the presenter as well. I was able
 to make some improvements at the time, such as closing the blinds to insulate us from people passing on the bridge, bringing better slides-generating
 equipment, and adjusting the positioning of the projector, but I can't catch everything, and I was concentrating on the talk ahead.
 <LI><A href="talkstart.html">Transcribed the talk</A>, supplementing inaudible portions from my memory of my talk, and much speeded-up by YouTube's constantly-improving automatic transcription feature. There was nonetheless, a lot of editing necessary to the automatic translation. Not least, removing the stuttering.
-<LI>Attended a meeting of Bath Toastmasters, as a guest: My first FTF one, after lockdown. (They improve public speaking skills. I'm allowed to attend up to three meetings as a guest, for free, before I have to join if I want to continue.)
+<LI>Attended a meeting of <A href="https://www.toastmasters.org/Find-a-Club/04547336-bathspatoastmasters">Bath Toastmasters</A>, as a guest: My first FTF one, after lockdown. (They improve public speaking skills. I'm allowed to attend up to three meetings as a guest, for free, before I have to join if I want to continue.)
 <LI>Started revising this documentation on GitHub.
 </UL>
 
@@ -218,7 +232,8 @@ equipment, and adjusting the positioning of the projector, but I can't catch eve
 <LI>Presentation software:
 <UL>
 <LI>Minor refinements, including merging in parts of the original controller code.
-<LI>
+<LI>I made a spinoff version, which converts the slides into PNGs, for use in webpages and video composition. The PNGs get converted into JPEGs, for web use, in GIMP, via Script-fu.
+<BR>(In theory...) They can be virtually directly converted into PDFs, by printing to a PDF, clipping that to a standard HD screen rectangle in Inkscape, and exporting as a PDF.
 </UL>
 
 
@@ -246,7 +261,6 @@ equipment, and adjusting the positioning of the projector, but I can't catch eve
 <LI>A business plan, or something like it:
 <UL>
 <LI>Continuing to follow-up with contacts, keep emails concise, and checking none of them are loafing about in people's spam folders.
-<LI>
 </UL>
 
 </UL>
