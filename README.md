@@ -21,7 +21,7 @@ Rather untidily banged in here, starting from <a href="https://youtu.be/TMfGzMqa
 <UL>
 <LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#intro">Transcript</A>
 <LI><A href="https://robinhodson.github.io/FPGA/talkstart.html#slides">Collection of slides to bung in</A>. These will be integrated, eventually.
-<LI><A href="https://robinhodson.github.io/FPGA/insertable.html#slides"><B>Test page</B>, for the slides</A>.
+<LI><A href="https://robinhodson.github.io/FPGA/insertable.html"><B>Test page</B>, for the slides</A>.
 </UL>
 </details>
 <details><summary><A href="https://robinhodson.github.io/FPGA/roadmap.html">Roadmap</A></summary>
