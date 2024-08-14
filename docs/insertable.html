@@ -1,80 +1,162 @@
 <!DOCTYPE html>
-<html lang="en-GB" dir="ltr"><head>
-<meta charset="utf-8">
-<style>
-iframe{border:0}
-</style>
-<title>SLIDES INSERT TEST</title>
-</head><body>
+<HTML lang="en-GB" dir="ltr"><HEAD>
+<META charset="utf-8">
+<!--NEEDS MERGING INTO TALKSTART, NEXT.-->
+<STYLE>
+#preview{
+/*position:absolute;*/
+right:50px;top:50px;
+width:960px;height:540px;cursor:move;
+border:4px inset #88c;
 
-<H2>Slides addeded by php-sw</H2>
-<P><A href="slides/php_sw_h.jpg" target="preview"><IMG src="slides/php_sw_m.jpg" width="320" height="180" alt="php-sw testcard"></A>
-<A href="slides/sponsors_h.jpg" target="preview"><IMG src="slides/sponsors_m.jpg" width="320" height="180" alt="php-sw's sponsors, not mine"></A>
+/* This means preview window is draggable and sticky simultaneously: */
+position:sticky;float:right;
+}
+</STYLE><SCRIPT>
+
+function startDrag(e){
+if(!e) var e=window.event;
+
+// MsIE workaround:
+var targ=e.target?e.target:e.srcElement;
+
+if (targ.id!='preview') return;
+offsetX=e.clientX;
+offsetY=e.clientY;
+if(!targ.style.right) targ.style.right='50px';
+if(!targ.style.top) targ.style.top='50px';
+coordX=parseInt(targ.style.right);
+coordY=parseInt(targ.style.top);
+
+drag=true;
+document.onmousemove=dragDiv;
+}
+function dragDiv(e){
+if(!drag){return};
+if(!e){var e=window.event};
+var targ=document.getElementById('preview');
+targ.style.right=coordX-e.clientX+offsetX+'px';
+targ.style.top=coordY+e.clientY-offsetY+'px';
+return false;
+}
+function stopDrag(){
+drag=false;
+}
+window.onload=function(){
+document.onmousedown=startDrag;
+document.onmouseup=stopDrag;
+}
+
+
+function cI(tsc){
+tsc=tsc.src.replace(/^.*[\\/]/,'');
+tlen=tsc.length;
+tsc=tsc.substring(0,tlen-5);
+document.getElementById('preview').src='slides/'+tsc+'h.jpg';
+}
+
+</SCRIPT>
+<TITLE>SLIDES INSERT TEST</TITLE>
+</HEAD><BODY>
+<IMG src="slides/s000_000-00h.jpg" alt="" draggable="yes" id="preview" width="960" height="540">
+<P>Note: The slide preview window will scroll with the viewport, but is also draggable.
+Refreshing the window will get it back, if you lose it.
+
+<H2>Slides added by php-sw</H2>
+<P><IMG onclick="cI(this)" src="slides/php_sw_m.jpg" width="320" height="180" alt="php-sw testcard"></A>
+<IMG onclick="cI(this)" src="slides/sponsors_m.jpg" width="320" height="180" alt="php-sw's sponsors, not mine"></A>
+
 <H3>Venue background</H3>
 <P><A href="https://phpsw.uk/">php-sw</A> is the Southwest chapter of
 <A href="https://www.phpconference.co.uk/">php-UK</A>, a networking group for php developers.
-<BR><A href="https://runwayea.st/locations/bristol-bridge">Runway East</A> (Bristol Bridge) is a co-working venue in virtually the dead centre of Bristol.
-<BR><A href="https://sr2rec.com/">SR2</A> are a recruitment firm, based in Runway East, whom host and sponsor php-sw,
-because there's a serious shortage of coders until my AI takes all (y)our jobs.
+
+<BR><A href="https://runwayea.st/locations/bristol-bridge">Runway East</A> (Bristol 
+Bridge) is a co-working venue in virtually the dead centre of Bristol.
+
+<BR><A href="https://sr2rec.com/">SR2</A> are a recruitment firm, based in Runway 
+East, whom host and sponsor php-sw, because there's a serious shortage of coders
+until my AI takes all (y)our jobs.
+
 <H3>Talk background</H3>
 <P>There are a couple of things which prompted this talk:
+
 <UL>
-<LI>Me being a regular attendee at php-sw, mainly for moving into coding as <I>paid</I> work, for keeping up with new &amp; related developments, and meeting &amp; helping other people in the same field.
-<LI>I've used php for many years, originally as light relief from Perl, which <I>will</I> drive you bonkers, if you try to do anything non-trivial with it.
-<LI>An important part of getting an open-source project going, is publicising it, and explaining it to other people. Hence comprehensive documentation is crucial, which meant that my writer's block in that department was a bit of an issue.
-<LI>During an earlier meeting, which really was a multi-person conclusion, bits of php-sw realised that talking out an illustrated explanation, could also form the basis of the documentation.
-<LI>php-sw are desperate for speakers. This has many roots: Networking groups need talks; giving a talk is stressful, so most sane people try to avoid it; I do quite a bit of graphical PR in advertising and am getting into doing talks, both through Bath Toastmasters, and Bath 3D Academy where it was part of the course, and as a natural progression from making animations and videos.
-<LI>Standing up infront of a group of people adds constructive pressure to explain things properly. (It also adds stuttering etc, but such is life.)
-<LI>I've also been working on a more reliable video source than the standard laptop fumble, and this was my opportunity to give it a proper test.
+<LI>Me being a regular attendee at php-sw, mainly for moving into coding as <I>paid</I> 
+work, for keeping up with new &amp; related developments, and meeting &amp; helping 
+other people in the same field.
+<LI>I've used php for many years, originally as light relief from Perl, which <I>will</I> 
+drive you bonkers, if you try to do anything non-trivial with it.
+<LI>An important part of getting an open-source project going, is publicising it, 
+and explaining it to other people. Hence comprehensive documentation is crucial, 
+which meant that my writer's block in that department was a bit of an issue.
+<LI>During an earlier meeting, which really was a multi-person conclusion, bits of 
+php-sw realised that talking out an illustrated explanation, could also form the 
+basis of the documentation.
+<LI>php-sw are desperate for speakers. This has many roots: Networking groups need 
+talks; giving a talk is stressful, so most sane people try to avoid it; I do quite 
+a bit of graphical PR in advertising and am getting into doing talks, both through 
+Bath Toastmasters, and Bath 3D Academy where it was part of the course, and as a 
+natural progression from making animations and videos.
+<LI>Standing up infront of a group of people adds constructive pressure to explain 
+things properly. (It also adds stuttering etc, but such is life.)
+<LI>I've also been working on a more reliable video source than the standard laptop 
+fumble, and this was my opportunity to give it a proper test.
 </UL>
-<P>The talk was performed infront of a live audience of about 50 fellow developers. There are usually many more, unless the weather is a bit chilly, as was the case at the time. It was prepared in a tearing rush, hence some slides being incomplete, overwritten, or in draft.
-<P>These slides are sized large enough to be legible, and small enough to not swamp the text. Larger versions are available, by clicking on them. These will always appear in the same second window/tab.
+
+<P>The talk was performed infront of a live audience of about 50 fellow developers. 
+There are usually many more, unless the weather is a bit chilly, as was the case 
+at the time. It was prepared in a tearing rush, hence some slides being incomplete, 
+overwritten, or in draft.
+
+<P>These slides are sized large enough to be legible, and small enough to not swamp 
+the text. Larger versions are available, by clicking on them. These will always appear 
+in the same second window/tab.
 
 <H2>Titlecard</H2>
-<P><A href="slides/s000_000-00h.jpg" target="preview"><IMG src="slides/s000_000-00m.jpg" width="320" height="180" alt="My titlecard"></A>
+<P><IMG onclick="cI(this)" src="slides/s000_000-00m.jpg" width="320" height="180" alt="My titlecard"></A>
 <H2>Introduction: What is an FPGA?</H2>
-<P><A href="slides/s001_000-01h.jpg" target="preview"><IMG src="slides/s001_000-01m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s002_000-02h.jpg" target="preview"><IMG src="slides/s002_000-02m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s001_000-01m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s002_000-02m.jpg" width="320" height="180" alt="">
 <H2>Traditional internal structure, and what I changed</H2>
-<P><A href="slides/s004_000-52h.jpg" target="preview"><IMG src="slides/s004_000-52m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s005_000-53h.jpg" target="preview"><IMG src="slides/s005_000-53m.jpg" width="320" height="180" alt=""></A>
-<P><A href="slides/s006_000-54h.jpg" target="preview"><IMG src="slides/s006_000-54m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s007_000-55h.jpg" target="preview"><IMG src="slides/s007_000-55m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s007_001-56h.jpg" target="preview"><IMG src="slides/s007_001-56m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s004_000-52m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s005_000-53m.jpg" width="320" height="180" alt="">
+<P><IMG onclick="cI(this)" src="slides/s006_000-54m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s007_000-55m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s007_001-56m.jpg" width="320" height="180" alt="">
 <H2>LUT Demo, simple</H2>
-<P><A href="slides/s008_000-57h.jpg" target="preview"><IMG src="slides/s008_000-57m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s008_001-58h.jpg" target="preview"><IMG src="slides/s008_001-58m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s008_002-59h.jpg" target="preview"><IMG src="slides/s008_002-59m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s008_003-60h.jpg" target="preview"><IMG src="slides/s008_003-60m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s008_000-57m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s008_001-58m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s008_002-59m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s008_003-60m.jpg" width="320" height="180" alt="">
 <H2>LUT Demo, extended</H2>
-<P><A href="slides/s009_000-61h.jpg" target="preview"><IMG src="slides/s009_000-61m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s009_001-62h.jpg" target="preview"><IMG src="slides/s009_001-62m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s009_002-00h.jpg" target="preview"><IMG src="slides/s009_002-00m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s009_003-01h.jpg" target="preview"><IMG src="slides/s009_003-01m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s009_000-61m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s009_001-62m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s009_002-00m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s009_003-01m.jpg" width="320" height="180" alt="">
 <H2>My improvements</H2>
-<P><A href="slides/s010_000-02h.jpg" target="preview"><IMG src="slides/s010_000-02m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s011_000-03h.jpg" target="preview"><IMG src="slides/s011_000-03m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s012_000-04h.jpg" target="preview"><IMG src="slides/s012_000-04m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s013_000-05h.jpg" target="preview"><IMG src="slides/s013_000-05m.jpg" width="320" height="180" alt=""></A>
-<P><A href="slides/s014_000-06h.jpg" target="preview"><IMG src="slides/s014_000-06m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s015_000-07h.jpg" target="preview"><IMG src="slides/s015_000-07m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s016_000-08h.jpg" target="preview"><IMG src="slides/s016_000-08m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s017_000-09h.jpg" target="preview"><IMG src="slides/s017_000-09m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s010_000-02m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s011_000-03m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s012_000-04m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s013_000-05m.jpg" width="320" height="180" alt="">
+<P><IMG onclick="cI(this)" src="slides/s014_000-06m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s015_000-07m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s016_000-08m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s017_000-09m.jpg" width="320" height="180" alt="">
 <H2>Standard internal fittings</H2>
-<P><A href="slides/s018_000-10h.jpg" target="preview"><IMG src="slides/s018_000-10m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s018_000-10m.jpg" width="320" height="180" alt="">
 <H2>Maths humour</H2>
-<P><A href="slides/s019_000-11h.jpg" target="preview"><IMG src="slides/s019_000-11m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s019_001-12h.jpg" target="preview"><IMG src="slides/s019_001-12m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s019_002-13h.jpg" target="preview"><IMG src="slides/s019_002-13m.jpg" width="320" height="180" alt=""></A>
-<P><A href="slides/s019_003-14h.jpg" target="preview"><IMG src="slides/s019_003-14m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s019_004-15h.jpg" target="preview"><IMG src="slides/s019_004-15m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s019_000-11m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s019_001-12m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s019_002-13m.jpg" width="320" height="180" alt="">
+<P><IMG onclick="cI(this)" src="slides/s019_003-14m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s019_004-15m.jpg" width="320" height="180" alt="">
 <H2>Coda: Questions?</H2>
-<P><A href="slides/s020_000-16h.jpg" target="preview"><IMG src="slides/s020_000-16m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s020_000-16m.jpg" width="320" height="180" alt="">
 
 <H2>Bonus section: Appendices</H2>
-<P><A href="slides/s021_000-17h.jpg" target="preview"><IMG src="slides/s021_000-17m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s021_001-18h.jpg" target="preview"><IMG src="slides/s021_001-18m.jpg" width="320" height="180" alt=""></A>
-<A href="slides/s021_002-19h.jpg" target="preview"><IMG src="slides/s021_002-19m.jpg" width="320" height="180" alt=""></A>
+<P><IMG onclick="cI(this)" src="slides/s021_000-17m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s021_001-18m.jpg" width="320" height="180" alt="">
+<IMG onclick="cI(this)" src="slides/s021_002-19m.jpg" width="320" height="180" alt="">
 
 <H2>Embedded video test</H2>
 <P>This will be replaced by my animation, when that's converted to video format.
@@ -96,4 +178,4 @@ because there's a serious shortage of coders until my AI takes all (y)our jobs.
 </UL>
 </UL>
 
-</body></html>
+</BODY></HTML>
